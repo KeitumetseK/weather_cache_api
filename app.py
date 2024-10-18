@@ -1,12 +1,12 @@
 from flask import Flask, jsonify, request
-from weather_api_wrapper import WeatherAPIWrapper
-from redis_cache import RedisCache  
+from services.weather_api import WeatherAPIWrapper
+from cache.redis_cache import RedisCache
 
 app = Flask(__name__)
 
 # Initialize Redis cache and Weather API Wrapper
 redis_cache = RedisCache()
-api_key = LC53YUZQYPQREHWKP89XRZQF4
+api_key = "LC53YUZQYPQREHWKP89XRZQF4"
 weather_service = WeatherAPIWrapper(api_key, redis_cache)
 
 @app.route('/weather', methods=['GET'])

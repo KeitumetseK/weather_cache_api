@@ -1,5 +1,5 @@
-from weather_api_wrapper import WeatherAPIWrapper
-from redis_cache import RedisCache
+from services.weather_api import WeatherAPIWrapper
+from cache.redis_cache import RedisCache
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
