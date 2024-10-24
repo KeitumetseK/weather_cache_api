@@ -1,5 +1,5 @@
 import redis
-import json  # Import json module for serialization and deserialization
+import json
 
 class RedisCache:
     def __init__(self, host='localhost', port=6379, db=0):
@@ -16,3 +16,6 @@ class RedisCache:
         # Serialize the dictionary into a JSON string before storing it in Redis
         self.client.set(key, json.dumps(value), ex=ex)  # Convert dict to JSON string
 
+    def delete(self, key):
+        """Delete data from Redis cache."""
+        self.client.delete(key)
