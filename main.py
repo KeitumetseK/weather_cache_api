@@ -12,8 +12,10 @@ supported_cities = ["Johannesburg", "New York", "London", "Tokyo", "Sydney"]
 
 @app.route('/weather', methods=['GET'])
 def get_weather():
+    """
+    Endpoint to get current weather and forecast data for a specified city.
+    """
     city_name = request.args.get('city')
-    
     if not city_name:
         return jsonify({"error": "Please provide a city name."}), 400
     if city_name not in supported_cities:
